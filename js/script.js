@@ -41,10 +41,16 @@ let myString = "";
 for (let i = 0; i < team.length; i++) {
     for (const key in team[i]) {
         console.log(`${key}: ${team[i][key]}`);
-        myString += `
+        if (key === "photo") {
+            myString += `<img src="img/${team[i][key]}"`
+        }else {
+            myString += `
         <li>
             ${key}: ${team[i][key]}
         </li>`
+        }
+        
+        
     }
     console.log("*******************************************");
 }
