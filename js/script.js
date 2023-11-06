@@ -1,5 +1,7 @@
+//Object array
 const team = [
     {
+      //key       value
         name: "Wayne Barnett",
         role: "Founder & CEO",
         photo: "wayne-barnett-founder-ceo.jpg"
@@ -36,23 +38,22 @@ const team = [
     }
 ]
 
+//The String variable where write the html code
 let myString = "";
 
+//The for loop to scroll the array
 for (let i = 0; i < team.length; i++) {
-    for (const key in team[i]) {
-        console.log(`${key}: ${team[i][key]}`);
-        if (key === "photo") {
-            myString += `<img src="img/${team[i][key]}"`
-        }else {
-            myString += `
-        <li>
-            ${key}: ${team[i][key]}
-        </li>`
-        }
-        
-        
-    }
-    console.log("*******************************************");
+    
+    myString += `
+    <div class="card col-3 mx-2 border-0 rounded-0">
+        <img src="img/${team[i].photo}" class="card-img-top p-2">
+            <div class="card-body ps-1 text-center">
+                <h5 class="card-title">${team[i].name}</h5>
+                <h6 class="card-subtitle mt-2">${team[i].role}</h6>
+            </div>
+    </div>
+    `
 }
 
-document.querySelector("ul").innerHTML = myString;
+//Innering the html code in the DOM
+document.querySelector(".row").innerHTML = myString;
