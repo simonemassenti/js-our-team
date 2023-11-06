@@ -36,9 +36,17 @@ const team = [
     }
 ]
 
+let myString = "";
+
 for (let i = 0; i < team.length; i++) {
     for (const key in team[i]) {
         console.log(`${key}: ${team[i][key]}`);
+        myString += `
+        <li>
+            ${key}: ${team[i][key]}
+        </li>`
     }
     console.log("*******************************************");
 }
+
+document.querySelector("ul").innerHTML = myString;
